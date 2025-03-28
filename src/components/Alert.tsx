@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { AlertProps } from '../types/dialogs';
 
 const Alert = ({ message, type = 'error', isOpen, onClose }: AlertProps) => {
