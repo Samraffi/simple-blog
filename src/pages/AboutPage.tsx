@@ -1,3 +1,5 @@
+import Recommendations from "../components/Recommendations";
+
 const AboutPage = () => {
   return (
     <div className="pt-4 bg-gray-50">
@@ -12,11 +14,11 @@ const AboutPage = () => {
               <ol role="list" className="flex space-x-2">
                 <li>
                   <div>
-                    <a href="#" className="flex items-center text-blue-600">
+                    <a href="/" className="flex items-center text-gray-600">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="w-5 h-5">
                         <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" clip-rule="evenodd"></path>
                       </svg>
-                      <span className="ml-2">Piece of Cake</span>
+                      <span className="ml-2">Home</span>
                     </a>
                   </div>
                 </li>
@@ -25,13 +27,13 @@ const AboutPage = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="w-5 h-5 text-gray-500">
                       <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
                     </svg>
-                    <a href="#" className="ml-2 text-gray-500 hover:text-blue-600">About Me</a>
+                    <span className="ml-2 text-gray-500">About</span>
                   </div>
                 </li>
               </ol>
             </nav>
-            <h1 className="mt-4 md:mt-0 font-domaine mb-6 text-4xl md:text-5xl lg:text-7xl text-purple-500">About Me</h1>
-            <h3 className="text-xl md:text-2xl font-semibold mb-6 text-cyan-600">Hi, my name is Sam!</h3>
+            <h1 className="mt-4 lg:mt-3 md:mt-0 font-domaine mb-6 text-4xl md:text-5xl lg:text-6xl text-cyan-600">About Me</h1>
+            <h3 className="text-xl md:text-2xl font-semibold mb-6 text-gray-600">Hi, my name is <span className="text-cyan-600">Sam!</span></h3>
             <p className="text-base md:text-lg mb-6 text-gray-700">Piece of Cake is where I share my passion for delicious flavors and culinary creativity!</p>
             <p className="text-base md:text-lg mb-6 text-gray-600">What started as a hobby in 2010 experimenting with recipes in my tiny kitchen has grown into a community that inspires millions of people to cook with joy. I love proving that delicious food doesn’t have to be complicated.</p>
             <p className="text-base md:text-lg mb-6 text-gray-600">I live in St. Paul, Minnesota with my wife, two curious kids, and a countertop perpetually covered in crumbs. I love farmers markets, kitchen gadgets, and lively family dinners where mismatched plates and laughter are always on the menu.</p>
@@ -47,15 +49,14 @@ const AboutPage = () => {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-gray-800 text-center">I Live for Flavor!</h2>
             <p className="text-lg mb-6 text-gray-700">Here, I focus on creating dishes that are not only delicious but also fun to make. From savory main courses to delightful desserts, my mission is to help you enjoy every moment in the kitchen.</p>
-            <div className="bg-gray-100 border-l-4 border-cyan-500 p-6 mb-6">
-              <p className="text-gray-700 italic font-medium">"To cook well, it's not enough to love eating. You must love the process itself, putting love into every minute of it. Love is the foundation of all life, including cooking."</p>
-              <p className="text-gray-700 italic font-medium text-right">- Anthony Bourdain</p>
+            <div className="flex justify-between bg-gray-100 border-l-4 border-cyan-500 py-4 px-6 mb-6 ">
+              <p className="text-gray-700 italic font-medium">"Inspiration exists, but it has to find you working"</p>
+              <p className="text-gray-700 italic font-medium text-right">- Pablo Picasso</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Recipe Section */}
       {/* Beyond Kitchen Section */}
       <section className="py-16 bg-gray-100 bg-opacity-60">
         <div className="container mx-auto px-4">
@@ -71,7 +72,7 @@ const AboutPage = () => {
                 <p className="text-gray-600 mb-4">From cooking classes to food festivals, join me on my culinary adventures around the world.</p>
                 <a href="#" className="text-cyan-600 font-semibold hover:text-cyan-800 inline-flex items-center">
                   Explore adventures
-                  <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  <svg className="w-4 h-4 mt-1 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
               </div>
             </div>
@@ -84,7 +85,7 @@ const AboutPage = () => {
                 <p className="text-gray-600 mb-4">Sharing meals with family is one of my greatest joys. Here are some of our favorite moments.</p>
                 <a href="#" className="text-cyan-600 font-semibold hover:text-cyan-800 inline-flex items-center">
                   Read more
-                  <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  <svg className="w-4 h-4 mt-1 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
               </div>
             </div>
@@ -97,7 +98,7 @@ const AboutPage = () => {
                 <p className="text-gray-600 mb-4">I love trying out new kitchen gadgets. Here are some of my reviews and favorite picks.</p>
                 <a href="#" className="text-cyan-600 font-semibold hover:text-cyan-800 inline-flex items-center">
                   See gadgets
-                  <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  <svg className="w-4 h-4 mt-1 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
               </div>
             </div>
@@ -110,7 +111,7 @@ const AboutPage = () => {
                 <p className="text-gray-600 mb-4">Exploring local markets is one of my favorite activities. Discover some of my best finds.</p>
                 <a href="#" className="text-cyan-600 font-semibold hover:text-cyan-800 inline-flex items-center">
                   Discover more
-                  <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  <svg className="w-4 h-4 mt-1 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
               </div>
             </div>
@@ -123,7 +124,7 @@ const AboutPage = () => {
                 <p className="text-gray-600 mb-4">Join me in my cooking classes where we explore new recipes and techniques together.</p>
                 <a href="#" className="text-cyan-600 font-semibold hover:text-cyan-800 inline-flex items-center">
                   Join a class
-                  <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  <svg className="w-4 h-4 mt-1 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
               </div>
             </div>
@@ -136,65 +137,17 @@ const AboutPage = () => {
               <div className="p-6">
                 <h3 className="font-bold text-xl mb-2 text-gray-800">Personal Life</h3>
                 <p className="text-gray-600 mb-4">"Your body is not a temple, it's an amusement park. Enjoy the ride." - Anthony Bourdain</p>
+                <a href="#" className="text-cyan-600 font-semibold hover:text-cyan-800 inline-flex items-center">
+                  Join a class
+                  <svg className="w-4 h-4 mt-1 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-gray-800 text-center">The Crew</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-            {/* Sam */}
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1492447273231-0f8fecec1e3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sam" className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-bold text-xl mb-2 text-gray-800">Sam</h3>
-              <p className="text-gray-600">Culinary enthusiast, recipe developer, and kitchen adventurer.</p>
-            </div>
-
-            {/* Lena */}
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lena" className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-bold text-xl mb-2 text-gray-800">Lena</h3>
-              <p className="text-gray-600">Tech guru, spreadsheet queen, and master of monetization.</p>
-            </div>
-
-            {/* Dmitry */}
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dmitry" className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-bold text-xl mb-2 text-gray-800">Dmitry</h3>
-              <p className="text-gray-600">Customer service ninja. He'll fix your ebook issues in 5 minutes flat.</p>
-            </div>
-
-            {/* Ivan */}
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ivan" className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-bold text-xl mb-2 text-gray-800">Ivan</h3>
-              <p className="text-gray-600">Videographer + smoke ring enthusiast. Films all my cooking tutorials.</p>
-            </div>
-
-            {/* Thor */}
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1589941013454-ec7d8f92b4d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Thor" className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-bold text-xl mb-2 text-gray-800">Thor</h3>
-              <p className="text-gray-600">Security, taste-tester, and occasional blog post model.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Recommendations />
     </div>
   );
 };
