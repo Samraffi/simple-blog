@@ -3,22 +3,20 @@ import Home from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import Layout from "./components/Layout";
 import RecipePage from "./pages/RecipePage";
+import ContactPage from "./pages/ContactPage";
 
 const App = () => {
   return (
-    <>
-      {/* <Navigation /> */}
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/recipe" element={<RecipePage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
-
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/recipe" element={<RecipePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
