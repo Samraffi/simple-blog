@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.12",
+    "flowbite": "^3.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.4.0"
