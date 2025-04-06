@@ -44,81 +44,18 @@ const ContactPage = () => {
 
             <div className="flex items-center gap-3 text-gray-900">
               <label className="flex items-center gap-2">
-                <input type="radio" name="subject" className="form-radio" />
+                <input type="radio" name="subject" className="form-radio text-cyan-400 focus:ring-cyan-400" />
                 General Inquiry
               </label>
               <label className="flex items-center gap-2">
-                <input type="radio" name="subject" className="form-radio" />
+                <input type="radio" name="subject" className="form-radio text-cyan-400 focus:ring-cyan-400" />
                 UI/UX
               </label>
               <label className="flex items-center gap-2">
-                <input type="radio" name="subject" className="form-radio" />
+                <input type="radio" name="subject" className="form-radio text-cyan-400 focus:ring-cyan-400" />
                 Brand Identity
               </label>
             </div>
-
-            <div className="mt-2">
-              <div>
-                <label className="inline-flex items-center">
-                  {/* <input type="checkbox" className="rounded bg-gray-200 border-transparent focus:border-transparent focus:bg-gray-200 text-gray-700 ring-offset-2 focus:ring-1 focus:ring-offset-2 focus:ring-gray-500" /> */}
-                  <input
-  type="radio"
-  name="default-radio"
-  className="h-4 w-4 rounded bg-gray-200 border rounded-full border-gray-300 checked:bg-red-600 focus:ring-2 focus:ring-red-500 ring-offset-2"
-/>
-{/* <input
-    type="radio"
-    className="w-5 h-5 appearance-none text-red-600 bg-gray-100 border-gray-300 rounded-full checked:bg-red-600 focus:ring-red-500 focus:ring-2"
-  /> */}
-
-  
-
-                  <span className="ml-2">Email me news and special offers</span>
-                </label>
-                
-              </div>
-            </div>
-
-            <div className="flex flex-wrap">
-              <div className="flex items-center me-4">
-                <div className="flex items-center me-4">
-                  {/* <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> */}
-                  <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Red
-                    <input id="red-radio" type="radio" value="" name="colored-radio" className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                  </label>
-                </div>
-                {/* <input
-                        defaultChecked
-                        id="comments"
-                        name="comments"
-                        type="checkbox"
-                        aria-describedby="comments-description"
-                        className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
-                      /> */}
-                <div className="flex items-center me-4">
-                    <input id="red-radio" type="radio" value="" name="colored-radio" className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-600 appearance-none checked:bg-red-600 dark:checked:bg-red-600" />
-                    <label htmlFor="red-radio" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Red</label>
-                </div>
-              </div>
-            </div>
-            {/* <div className="flex flex-wrap">
-              <div className="flex items-center me-4">
-                <div className="flex items-center me-4">
-                  <input
-                    id="red-radio"
-                    type="radio"
-                    name="colored-radio"
-                    className="w-4 h-4 text-red-600 border-gray-300 focus:ring-2 focus:ring-red-500 dark:focus:ring-red-600 appearance-none checked:bg-red-600 dark:checked:bg-red-600"
-                  />
-                  <label htmlFor="red-radio" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Red
-                  </label>
-                </div>
-              </div>
-            </div>
- */}
-
             <textarea
               placeholder="Write your message..."
               className="p-3 rounded-lg w-full h-24 placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-700 hover:border-gray-600"
