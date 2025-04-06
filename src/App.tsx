@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import Layout from "./components/Layout";
+import RecipesPage from "./pages/RecipesPage";
 import RecipePage from "./pages/RecipePage";
 import ContactPage from "./pages/ContactPage";
 
@@ -12,7 +13,8 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/recipes" element={<RecipePage />} />
+          <Route path="/recipes" element={<RecipesPage />} />
+          <Route path="/recipes/recipe" element={<RecipePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>
