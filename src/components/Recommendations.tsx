@@ -9,7 +9,7 @@ const Recommendations = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-12 text-gray-800 text-center">My recomendations</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
           <div className="bg-gray-50 hover:bg-gray-100 rounded-lg p-6 text-center group hover:shadow-lg transition-all duration-300">
             <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden shadow-lg relative">
               <img

@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       <Header />
-      <main>
+      <main className='my-16'>
         <Outlet />
       </main>
       <Footer />

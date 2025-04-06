@@ -4,7 +4,7 @@ import Recommendations from "../components/Recommendations";
 
 const AboutPage = () => {
   return (
-    <div className="pt-4 bg-gray-50">
+    <div className="pt-4 bg-white">
       <Hero />
 
       <section className="py-16 bg-white">
