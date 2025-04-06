@@ -1,39 +1,7 @@
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  // Social icons as inline SVGs with Tailwind classes
-  const FacebookIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-    </svg>
-  );
-
-  const TwitterIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-    </svg>
-  );
-
-  const InstagramIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-    </svg>
-  );
-
-  const LinkedInIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-      <rect x="2" y="9" width="4" height="12"></rect>
-      <circle cx="4" cy="4" r="2"></circle>
-    </svg>
-  );
-
   return (
-    <footer className="bg-linear-to-r/shorter from-teal-400 to-teal-400/20">
-    {/* // <footer className="bg-[linear-gradient(to_right,_theme(colors.silver.400)_5%,_theme(colors.cyan.500)_5%)]"> */}
-    {/* // <footer className="bg-gradient-to-r from-silver-400 from-5% to-cyan-500"> */}
+    <footer className="bg-cyan-600/90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
           {/* About column */}
@@ -53,10 +21,10 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-3">
-              {['About', 'Services', 'Portfolio', 'Blog', 'Contact'].map((item) => (
+              {['Home', 'About', 'Recipes', 'Contact'].map((item) => (
                 <li key={item}>
                   <a 
-                    href={`/${item.toLowerCase()}`} 
+                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
                     className="text-white/90 hover:text-white transition-all duration-300 ease-in-out pl-4 relative font-medium text-base before:content-['>'] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:text-white/70 before:transition-all before:duration-300 hover:pl-5 hover:before:left-1"
                   >
                     {item}
@@ -93,46 +61,7 @@ const Footer = () => {
                 <span className="text-white/90 text-base font-light">info@example.com</span>
               </li>
             </ul>
-          </div>
-          
-          {/* Follow Us column */}
-          {/* <div className="backdrop-blur-sm bg-white/10 rounded-lg p-5 shadow-lg">
-            <h3 className="text-xl font-semibold mb-6 pb-2 relative text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-12 after:h-0.5 after:bg-white/60">
-              Follow Us
-            </h3>
-            <div className="flex space-x-3 mb-6">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
-                <FacebookIcon />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
-                <TwitterIcon />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
-                <InstagramIcon />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm">
-                <LinkedInIcon />
-              </a>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-medium mb-4 text-white">Subscribe to our newsletter</h4>
-              <form className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="flex-1 bg-white/20 backdrop-blur-sm border border-white/30 rounded-l-md py-2 px-4 text-white placeholder-white/60 focus:outline-none focus:border-white/50"
-                  required 
-                />
-                <button 
-                  type="submit" 
-                  className="bg-white text-blue-500 hover:bg-white/90 font-medium rounded-r-md py-2 px-4 transition-colors duration-300"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div> */}
+          </div>          
         </div>
         
         {/* Footer bottom */}
