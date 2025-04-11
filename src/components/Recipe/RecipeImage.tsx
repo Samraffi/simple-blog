@@ -5,7 +5,7 @@ const RecipeImage = ({ imageUrl }: RecipeImageProps) => {
     <div className="mb-8">
       <div className={`w-full ${imageUrl === "" ? 'h-64' : ''} bg-gray-200 rounded-lg flex items-center justify-center`}>
         {imageUrl === "" ? (
-          <span className="text-gray-500 text-xl">Изображение рецепта отсуствует</span>
+          <span className="text-gray-500 text-xl">Recipe image is missing but will be added soon</span>
         ) : (
           <img
             src={imageUrl}
