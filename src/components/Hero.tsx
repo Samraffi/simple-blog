@@ -29,9 +29,9 @@ const Hero = () => {
         </nav>
         <h1 className="mt-4 lg:mt-3 md:mt-0 font-domaine mb-6 text-4xl md:text-5xl lg:text-6xl text-cyan-600">About Me</h1>
         <h3 className="text-xl md:text-2xl font-semibold mb-6 text-gray-600">Hi, my name is <span className="text-cyan-600">Sam!</span></h3>
-        {DESCRIPTION_OF_PIECE_OF_CAKE.map((paragraph) => (
+        {DESCRIPTION_OF_PIECE_OF_CAKE.map((paragraph, index) => (
           <p
-            key={String(new Date())}
+            key={index}
             className="text-base md:text-lg mb-6 text-gray-700"
           >
             {paragraph}

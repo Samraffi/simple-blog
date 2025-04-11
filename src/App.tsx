@@ -1,24 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router";
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import Layout from "./components/Layout";
-import RecipesPage from "./pages/RecipesPage";
-import RecipePage from "./pages/RecipePage";
-import ContactPage from "./pages/ContactPage";
+import { Outlet } from 'react-router';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/recipes" element={<RecipesPage />} />
-          <Route path="/recipes/recipe" element={<RecipePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <div className="bg-gray-100 min-h-screen">
+      <Header />
+      <main className='my-16'>
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
   );
 };
 

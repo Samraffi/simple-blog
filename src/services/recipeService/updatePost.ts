@@ -1,8 +1,8 @@
-import { BlogPost } from '../../types/blog';
-import { STORAGE_KEY } from '../../constants/blog';
+import { RecipePost } from '../../types/recipe';
+import { STORAGE_KEY } from '../../constants/recipe';
 import { getPosts } from './getPosts';
 
-export const updatePost = (post: BlogPost): void => {
+export const updatePost = (post: RecipePost): void => {
   const posts = getPosts();
   const updatedPosts = posts.map(p => 
     p.id === post.id 

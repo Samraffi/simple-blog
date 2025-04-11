@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import App from './App';
+import { RouterProvider } from 'react-router';
+import { router } from './routes';
 import './index.css';
 
 const rootElement = document.getElementById('root');
@@ -7,4 +8,4 @@ if (!rootElement) throw new Error('Root element not found');
 
 const root = createRoot(rootElement);
 
-root.render(<App />);
+root.render(<RouterProvider router={router} />);

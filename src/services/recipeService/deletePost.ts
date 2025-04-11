@@ -1,4 +1,4 @@
-import { STORAGE_KEY } from '../../constants/blog';
+import { STORAGE_KEY } from '../../constants/recipe';
 import { getPosts } from './getPosts';
 
 export const deletePost = (id: string): void => {

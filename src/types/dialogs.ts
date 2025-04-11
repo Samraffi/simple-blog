@@ -1,11 +1,11 @@
 export interface AlertProps {
   message: string;
-  type?: 'error' | 'success' | 'warning';
+  type?: AlertType;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export type AlertType = 'error' | 'success' | 'warning';
+export type AlertType = 'error' | 'success' | 'warning' | 'info';
 
 export interface ConfirmDialogProps {
   isOpen: boolean;
