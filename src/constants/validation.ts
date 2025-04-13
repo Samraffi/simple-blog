@@ -23,3 +23,7 @@ export const validationSchema = Yup.object({
   category: Yup.string()
     .required('Выберите категорию рецепта')
 });
+
+export const searchValidationSchema = Yup.object({
+  searchQuery: Yup.string().trim()
+});
