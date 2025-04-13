@@ -1,8 +1,9 @@
 interface FormActionsProps {
   onCancel: () => void;
+  submitDisabled?: boolean;
 }
 
-const FormActions = ({ onCancel }: FormActionsProps) => (
+const FormActions = ({ onCancel, submitDisabled = false }: FormActionsProps) => (
   <div className="flex gap-4 pt-6">
     <button
       type="button"
@@ -13,7 +14,12 @@ const FormActions = ({ onCancel }: FormActionsProps) => (
     </button>
     <button
       type="submit"
-      className="px-6 py-3 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700"
+      disabled={submitDisabled}
+      className={`px-6 py-3 text-white rounded-lg ${
+        submitDisabled 
+          ? 'bg-cyan-400 cursor-not-allowed' 
+          : 'bg-cyan-600 hover:bg-cyan-700'
+      }`}
     >
       Создать рецепт
     </button>
