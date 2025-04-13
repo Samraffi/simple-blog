@@ -1,7 +1,6 @@
 import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router';
-import { RecipePost } from '../types/recipe';
-import { createPost } from '../services/recipeService/createPost';
+import { useRecipeCreate } from '../hooks/form/useRecipeCreate';
 import InputField from '../components/forms/InputField';
 import TextareaField from '../components/forms/TextareaField';
 import ArrayField from '../components/forms/ArrayField';
@@ -11,6 +10,7 @@ import { initialRecipeValues } from '../constants/recipe';
 
 const RecipeAddPage = () => {
   const navigate = useNavigate();
+  const { handleSubmit } = useRecipeCreate();
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -19,23 +19,7 @@ const RecipeAddPage = () => {
       <Formik
         initialValues={initialRecipeValues}
         validationSchema={validationSchema}
-        onSubmit={async (values) => {
-          try {
-            const newRecipe: RecipePost = {
-              ...values,
-              id: '',
-              createdAt: new Date().toISOString(),
-              updatedAt: new Date().toISOString(),
-              rating: 0,
-              reviews: 0
-            };
-            
-            await createPost(newRecipe);
-            navigate('/recipes');
-          } catch (error) {
-            console.error('Failed to create recipe:', error);
-          }
-        }}
+        onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
           <Form className="max-w-2xl mx-auto space-y-6">
