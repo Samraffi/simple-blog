@@ -80,8 +80,6 @@ const RecipeList = ({ recipes, onUpdate }: RecipeListProps) => {
           ) : (
             <RecipeCard
               recipe={recipe}
-              onEdit={() => setEditingId(recipe.id)}
-              onDelete={() => handleDelete(recipe.id)}
             />
           )}
         </div>

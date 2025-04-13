@@ -1,4 +1,4 @@
-import { RecipePost } from '../types/recipe';
+import { RecipePost, AlertStateType } from '../types/recipe';
 import { formatDate } from '../utils/dateUtils';
 import RecipeImage from '../components/Recipe/RecipeImage';
 import { FaPrint, FaShare } from 'react-icons/fa';
@@ -6,10 +6,19 @@ import RecipeRating from '../components/Recipe/RecipeRating';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { getPosts } from '../services/recipeService/getPosts';
+import RecipeEditor from '../components/Recipe/RecipeEditor';
+import { updatePost } from '../services/recipeService/updatePost';
+import Alert from '../components/Alert';
 
 const RecipePage = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState<RecipePost | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [alert, setAlert] = useState<AlertStateType>({
+    isOpen: false,
+    message: '',
+    type: 'success'
+  });
 
   useEffect(() => {
     const savedRecipes = getPosts() as RecipePost[];
@@ -67,6 +76,15 @@ const RecipePage = () => {
               <p className="text-gray-700">Категория: {recipe.category}</p>
             </div>
             <div className="flex space-x-3">
+              <button 
+                className="bg-cyan-600 hover:bg-cyan-700 text-white px-3 py-1 rounded-md flex items-center"
+                onClick={() => setIsEditing(true)}
+              >
+                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                Редактировать
+              </button>
               <button className="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-md flex items-center">
                 <FaPrint className="mr-1" /> Печать
               </button>
@@ -121,6 +139,54 @@ const RecipePage = () => {
           </div>
         </div>
       </div>
+      {isEditing && recipe && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold">Редактировать рецепт</h2>
+                <button
+                  onClick={() => setIsEditing(false)}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <RecipeEditor
+                initialData={recipe}
+                onSave={async (updatedRecipe) => {
+                  try {
+                    await updatePost(updatedRecipe);
+                    setRecipe(updatedRecipe);
+                    setIsEditing(false);
+                    setAlert({
+                      isOpen: true,
+                      message: 'Рецепт успешно обновлен',
+                      type: 'success'
+                    });
+                  } catch (error) {
+                    setAlert({
+                      isOpen: true,
+                      message: 'Ошибка при обновлении рецепта',
+                      type: 'error'
+                    });
+                  }
+                }}
+                onCancel={() => setIsEditing(false)}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      <Alert
+        isOpen={alert.isOpen}
+        message={alert.message}
+        type={alert.type}
+        onClose={() => setAlert(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 };

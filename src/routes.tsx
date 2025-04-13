@@ -4,6 +4,7 @@ import AboutPage from './pages/AboutPage';
 import App from "./App";
 import RecipesPage from "./pages/RecipesPage";
 import RecipePage from "./pages/RecipePage";
+import RecipeAddPage from "./pages/RecipeAddPage";
 import ContactPage from "./pages/ContactPage";
 
 export const router = createBrowserRouter([
@@ -17,10 +18,8 @@ export const router = createBrowserRouter([
         path: "recipes",
         children: [
           { index: true, element: <RecipesPage /> },
-          {
-            path: "/recipes/:id",
-            element: <RecipePage />,
-          },
+          { path: "add", element: <RecipeAddPage /> },
+          { path: ":id", element: <RecipePage /> },
         ],
       },
       { path: "contact", element: <ContactPage /> },

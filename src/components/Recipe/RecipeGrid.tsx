@@ -93,8 +93,6 @@ const RecipeGrid = ({ recipes, onUpdate }: RecipeGridProps) => {
             ) : (
               <RecipeCard 
                 recipe={recipe}
-                onEdit={() => setEditingId(recipe.id)}
-                onDelete={() => handleDelete(recipe.id)}
               />
             )}
           </div>
