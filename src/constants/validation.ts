@@ -1,5 +1,25 @@
 import * as Yup from 'yup';
 
+export const contactValidationSchema = Yup.object({
+  firstName: Yup.string()
+    .required('Имя обязательно')
+    .min(2, 'Минимум 2 символа'),
+  lastName: Yup.string()
+    .required('Фамилия обязательна')
+    .min(2, 'Минимум 2 символа'),
+  email: Yup.string()
+    .required('Email обязателен')
+    .email('Неверный формат email'),
+  phone: Yup.string()
+    .matches(/^\+?[1-9]\d{10,14}$/, 'Неверный формат телефона'),
+  subject: Yup.string()
+    .oneOf(['general', 'uiux', 'brand'], 'Выберите тему')
+    .required('Тема обязательна'),
+  message: Yup.string()
+    .required('Сообщение обязательно')
+    .min(10, 'Минимум 10 символов')
+});
+
 export const validationSchema = Yup.object({
   title: Yup.string()
     .required('Название рецепта обязательно')

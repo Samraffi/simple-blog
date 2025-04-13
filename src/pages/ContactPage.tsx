@@ -1,4 +1,17 @@
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useContactForm } from '../hooks/form/useContactForm';
+import { contactValidationSchema } from '../constants/validation';
+import RadioGroup from '../components/forms/RadioGroup';
+
 const ContactPage = () => {
+  const { handleSubmit, initialValues } = useContactForm();
+
+  const subjectOptions = [
+    { value: 'general', label: 'General Inquiry' },
+    { value: 'uiux', label: 'UI/UX' },
+    { value: 'brand', label: 'Brand Identity' }
+  ];
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100/20 mt-12 p-6 relative overflow-hidden">
       <div className="absolute top-20 right-20 w-56 h-56 bg-gradient-to-br from-gray-700/10 to-teal-600/20 rounded-full blur-[70px]"></div>
@@ -18,56 +31,80 @@ const ContactPage = () => {
             </p>
           </div>
 
-          <form className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="First Name"
-                className="p-3 rounded-lg w-full placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-900 hover:border-gray-600"
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                className="p-3 rounded-lg w-full placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-900 hover:border-gray-600"
-              />
-            </div>
-            <input
-              type="email"
-              placeholder="Email"
-              className="p-3 rounded-lg w-full placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-900 hover:border-gray-600"
-            />
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              className="p-3 rounded-lg w-full placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-900 hover:border-gray-600"
-            />
+          <Formik
+            initialValues={initialValues}
+            validationSchema={contactValidationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting }) => (
+              <Form className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Field
+                      type="text"
+                      name="firstName"
+                      placeholder="First Name"
+                      className="p-3 rounded-lg w-full placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-900 hover:border-gray-600"
+                    />
+                    <ErrorMessage name="firstName" component="div" className="mt-1 text-sm text-red-500" />
+                  </div>
+                  <div>
+                    <Field
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name"
+                      className="p-3 rounded-lg w-full placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-900 hover:border-gray-600"
+                    />
+                    <ErrorMessage name="lastName" component="div" className="mt-1 text-sm text-red-500" />
+                  </div>
+                </div>
 
-            <div className="flex items-center gap-3 text-gray-900">
-              <label className="flex items-center gap-2">
-                <input type="radio" name="subject" className="form-radio text-cyan-400 focus:ring-cyan-400" />
-                General Inquiry
-              </label>
-              <label className="flex items-center gap-2">
-                <input type="radio" name="subject" className="form-radio text-cyan-400 focus:ring-cyan-400" />
-                UI/UX
-              </label>
-              <label className="flex items-center gap-2">
-                <input type="radio" name="subject" className="form-radio text-cyan-400 focus:ring-cyan-400" />
-                Brand Identity
-              </label>
-            </div>
-            <textarea
-              placeholder="Write your message..."
-              className="p-3 rounded-lg w-full h-24 placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-700 hover:border-gray-600"
-            />
+                <div>
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="p-3 rounded-lg w-full placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-900 hover:border-gray-600"
+                  />
+                  <ErrorMessage name="email" component="div" className="mt-1 text-sm text-red-500" />
+                </div>
 
-            <button
-              type="submit"
-              className="w-full bg-cyan-600/90 hover:bg-cyan-500/90 text-white py-3 rounded-lg transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-cyan-500/10"
-            >
-              Send Message
-            </button>
-          </form>
+                <div>
+                  <Field
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    className="p-3 rounded-lg w-full placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-900 hover:border-gray-600"
+                  />
+                  <ErrorMessage name="phone" component="div" className="mt-1 text-sm text-red-500" />
+                </div>
+
+                <RadioGroup 
+                  name="subject"
+                  options={subjectOptions}
+                  required
+                />
+
+                <div>
+                  <Field
+                    as="textarea"
+                    name="message"
+                    placeholder="Write your message..."
+                    className="p-3 rounded-lg w-full h-24 placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none transition-all border border-gray-700 hover:border-gray-600"
+                  />
+                  <ErrorMessage name="message" component="div" className="mt-1 text-sm text-red-500" />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-cyan-600/90 hover:bg-cyan-500/90 text-white py-3 rounded-lg transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-cyan-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>
