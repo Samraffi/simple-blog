@@ -1,8 +1,8 @@
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { RatingProps } from '../../types/recipe';
 
-const RecipeRating = ({ rating }: RatingProps) => {
-  const reviews = 0;
+const RecipeRating = ({ rating, reviews }: RatingProps) => {
+  if (!rating) return null;
 
   const renderStar = (i: number) => {
     if (i < Math.floor(rating)) {
@@ -29,7 +29,8 @@ const RecipeRating = ({ rating }: RatingProps) => {
       <div className="flex">
         {[...Array(5)].map((_, i) => renderStar(i))}
       </div>
-      {reviews > 0 && <span className="ml-2 text-gray-700">{reviews} отзывов</span>}
+      <span className="text-sm ml-1">({rating})</span>
+      {reviews > 0 && <span className="text-sm ml-2">{reviews} отзывов</span>}
     </div>
   );
 };

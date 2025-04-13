@@ -3,7 +3,7 @@ import { RecipePost as RecipePostType } from '../types/recipe';
 import { getPosts } from '../services/recipeService/getPosts';
 import { Link } from 'react-router';
 import RecipeImage from '../components/Recipe/RecipeImage';
-import ShowRating from '../components/Recipe/ShowRating';
+import RecipeRating from '../components/Recipe/RecipeRating';
 
 const RecipesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -75,7 +75,7 @@ const RecipesPage = () => {
                   <RecipeImage imageUrl={recipe.imageUrl || ''} />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                     <div className="flex items-center space-x-1 text-white">
-                      <ShowRating rating={recipe.rating ?? null} reviews={recipe.reviews ?? 0}/>
+                      <RecipeRating rating={recipe.rating ?? null} reviews={recipe.reviews ?? 0}/>
                     </div>
                   </div>
                 </div>

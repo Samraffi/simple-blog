@@ -17,11 +17,6 @@ export type RecipeImageProps = {
   imageUrl: string;
 }
 
-export type ShowRatingProps = {
-  rating: number | null,
-  reviews: number
-};
-
 export type Recipes = RecipePost[];
 
 export type RecipeEditorProps = {
@@ -74,5 +69,49 @@ export interface NewPostFormProps {
 }
 
 export type RatingProps = {
-  rating: number;
+  rating: number | null;
+  reviews: number;
 };
+
+export type FormValidation = {
+  [key: string]: string[];
+};
+
+export const RECIPE_VALIDATION = {
+  title: {
+    required: true,
+    minLength: 3,
+    maxLength: 100
+  },
+  content: {
+    required: true,
+    minLength: 10,
+    maxLength: 2000
+  },
+  ingredients: {
+    required: true,
+    minItems: 1
+  },
+  cookTime: {
+    required: true,
+    pattern: /^\d+\s*мин$/
+  },
+  steps: {
+    required: true,
+    minItems: 1
+  },
+  category: {
+    required: true
+  }
+};
+
+export enum RecipeCategory {
+  Desserts = "Десерты",
+  MainDishes = "Основные блюда",
+  Soups = "Супы",
+  Salads = "Салаты",
+  Appetizers = "Закуски",
+  Beverages = "Напитки",
+  Breads = "Выпечка",
+  Other = "Другое"
+}
