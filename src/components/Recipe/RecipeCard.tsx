@@ -1,63 +1,59 @@
-import { RecipeCardProps } from '../../types/recipe';
-import { formatDate } from '../../utils/dateUtils';
+import { Link } from 'react-router';
+import { RecipePost } from '../../types/recipe';
+import RecipeImage from './RecipeImage';
+import RecipeRating from './RecipeRating';
+
+interface RecipeCardProps {
+  recipe: RecipePost;
+  onEdit?: () => void;
+  onDelete?: () => void;
+}
 
 const RecipeCard = ({ recipe, onEdit, onDelete }: RecipeCardProps) => {
   return (
-    <article className="bg-white p-6 rounded-lg shadow-md mb-6">
-      <header className="mb-4">
-        <div className="flex justify-between items-center mb-2">
-          <h2 className="text-2xl font-bold text-gray-800">{recipe.title}</h2>
-          <span className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">
-            {recipe.category || "Без категории"}
-          </span>
+    <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform hover:-translate-y-1 duration-300">
+      <div className="relative h-56 overflow-hidden">
+        <RecipeImage imageUrl={recipe.imageUrl || ''} />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+          <div className="flex items-center space-x-1 text-white">
+            <RecipeRating rating={recipe.rating ?? null} reviews={recipe.reviews ?? 0} />
+          </div>
         </div>
-        <div className="text-sm text-gray-500">
-          <span>⏱️ {`${recipe.cookTime} мин` || "Время не указано"}</span>
-          <span className="ml-4">
-            Обновлено: {formatDate(recipe.updatedAt)}
-          </span>
+      </div>
+      <div className="p-4">
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="font-bold text-xl text-gray-800 hover:text-cyan-600 transition-colors">
+          <Link to={`${recipe.id}`}>
+            {recipe.title}
+          </Link>
+          </h3>
+          {(onEdit || onDelete) && (
+            <div className="flex space-x-2">
+              {onEdit && (
+                <button
+                  onClick={onEdit}
+                  className="text-cyan-600 hover:text-cyan-800 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </button>
+              )}
+              {onDelete && (
+                <button
+                  onClick={onDelete}
+                  className="text-red-600 hover:text-red-800 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          )}
         </div>
-      </header>
-
-      {recipe.content && (
-        <div className="mb-4">
-          <p className="text-gray-600">{recipe.content}</p>
-        </div>
-      )}
-
-      <div className="mb-4">
-        <h3 className="text-lg font-semibold mb-2 text-gray-700">Ингредиенты:</h3>
-        <ul className="list-disc pl-5 space-y-1">
-          {recipe.ingredients.map((ingredient, index) => (
-            <li key={index} className="text-gray-600">{ingredient}</li>
-          ))}
-        </ul>
       </div>
-
-      <div className="mb-6">
-        <h3 className="text-lg font-semibold mb-2 text-gray-700">Приготовление:</h3>
-        <ol className="list-decimal pl-5 space-y-2">
-          {recipe.steps.map((step, index) => (
-            <li key={index} className="text-gray-600">{step}</li>
-          ))}
-        </ol>
-      </div>
-
-      <div className="flex gap-2 mt-4">
-        <button 
-          onClick={() => onEdit(recipe.id)} 
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
-        >
-          Редактировать
-        </button>
-        <button 
-          onClick={() => onDelete(recipe.id)} 
-          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
-        >
-          Удалить
-        </button>
-      </div>
-    </article>
+    </div>
   );
 };
 
