@@ -45,7 +45,7 @@ const RecipePage = () => {
         </div>
       </div>
 
-      <RecipeRating rating={recipe.rating ?? 0} />
+      <RecipeRating rating={recipe.rating ?? null} reviews={recipe.reviews ?? 0} />
 
 
       {/* Description */}
