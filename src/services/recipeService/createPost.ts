@@ -11,8 +11,5 @@ export const createPost = (post: RecipePost): void => {
     updatedAt: new Date().toISOString()
   };
 
-  console.log('Creating post:', newPost); // Debugging line
-  console.log('Current posts:', posts); // Debugging line
-  
   localStorage.setItem(STORAGE_KEY, JSON.stringify([...posts, newPost]));
 };

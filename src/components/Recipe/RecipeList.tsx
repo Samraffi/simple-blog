@@ -65,8 +65,6 @@ const RecipeList = ({ recipes, onUpdate }: RecipeListProps) => {
     }
   };
 
-  console.log('recipes', recipes);
-
   return (
     <div className="space-y-6">
       {recipes.map(recipe => (

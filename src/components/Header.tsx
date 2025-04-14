@@ -33,7 +33,7 @@ const Header = () => {
           
           <nav className={`absolute md:relative top-full left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none transition-all duration-300 ease-in-out transform ${isMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'} md:opacity-100 md:scale-y-100 md:pointer-events-auto origin-top ${isMenuOpen ? 'z-50' : '-z-10 md:z-auto'}`}>
             <ul className="flex flex-col md:flex-row items-center py-4 md:py-0 px-4 md:px-0 space-y-4 md:space-y-0 md:space-x-8">
-              {['Home', 'About', 'Recipes', 'Contact'].map((item) => (
+              {['Home', 'Recipes', 'Contact'].map((item) => (
                 <li key={item}>
                   <a 
                     href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
