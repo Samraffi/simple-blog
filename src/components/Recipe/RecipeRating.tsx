@@ -30,7 +30,7 @@ const RecipeRating = ({ rating, reviews }: RatingProps) => {
         {[...Array(5)].map((_, i) => renderStar(i))}
       </div>
       <span className="text-sm ml-1">({rating})</span>
-      {reviews > 0 && <span className="text-sm ml-2">{reviews} отзывов</span>}
+      {reviews > 0 && <span className="text-sm ml-2">{reviews} reviews</span>}
     </div>
   );
 };

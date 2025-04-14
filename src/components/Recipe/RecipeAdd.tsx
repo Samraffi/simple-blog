@@ -64,21 +64,21 @@ const RecipeAdd = ({ onPostCreated }: NewPostFormProps) => {
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Название рецепта"
+        placeholder="Recipe name"
         className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
         required
       />
 
       {/* Ingredients fields */}
       <div className="mb-4">
-        <label className="block mb-2 font-semibold">Ингредиенты:</label>
+        <label className="block mb-2 font-semibold">Ingredients:</label>
         {ingredients.map((ingredient, index) => (
           <input
             key={index}
             type="text"
             value={ingredient}
             onChange={(e) => handleIngredientChange(index, e.target.value)}
-            placeholder={`Ингредиент ${index + 1}`}
+            placeholder={`Ingredient ${index + 1}`}
             className="w-full p-2 mb-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
           />
         ))}
@@ -87,19 +87,19 @@ const RecipeAdd = ({ onPostCreated }: NewPostFormProps) => {
           onClick={handleAddIngredient}
           className="text-blue-500 hover:text-blue-700 text-sm"
         >
-          + Добавить ингредиент
+          + Add ingredient
         </button>
       </div>
 
       {/* Steps fields */}
       <div className="mb-4">
-        <label className="block mb-2 font-semibold">Шаги приготовления:</label>
+        <label className="block mb-2 font-semibold">Cooking steps:</label>
         {steps.map((step, index) => (
           <textarea
             key={index}
             value={step}
             onChange={(e) => handleStepChange(index, e.target.value)}
-            placeholder={`Шаг ${index + 1}`}
+            placeholder={`Step ${index + 1}`}
             className="w-full p-2 mb-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 min-h-20"
           />
         ))}
@@ -108,7 +108,7 @@ const RecipeAdd = ({ onPostCreated }: NewPostFormProps) => {
           onClick={handleAddStep}
           className="text-blue-500 hover:text-blue-700 text-sm"
         >
-          + Добавить шаг
+          + Add step
         </button>
       </div>
 
@@ -117,7 +117,7 @@ const RecipeAdd = ({ onPostCreated }: NewPostFormProps) => {
         type="text"
         value={cookTime}
         onChange={(e) => setCookTime(e.target.value)}
-        placeholder="Время приготовления (например, 30 мин)"
+        placeholder="Cooking time (e.g., 30 min)"
         className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
       />
 
@@ -126,7 +126,7 @@ const RecipeAdd = ({ onPostCreated }: NewPostFormProps) => {
         type="text"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
-        placeholder="Категория (например, Десерты)"
+        placeholder="Category (e.g., Desserts)"
         className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
       />
 
@@ -134,7 +134,7 @@ const RecipeAdd = ({ onPostCreated }: NewPostFormProps) => {
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="Описание рецепта"
+        placeholder="Recipe description"
         className="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:border-blue-500 min-h-32"
       />
 
@@ -144,7 +144,7 @@ const RecipeAdd = ({ onPostCreated }: NewPostFormProps) => {
           type="submit" 
           className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition-colors"
         >
-          Создать рецепт
+          Create recipe
         </button>
       </div>
     </form>

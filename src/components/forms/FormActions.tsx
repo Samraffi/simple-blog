@@ -10,7 +10,7 @@ const FormActions = ({ onCancel, submitDisabled = false }: FormActionsProps) => 
       onClick={onCancel}
       className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
     >
-      Отмена
+      Cancel
     </button>
     <button
       type="submit"
@@ -21,7 +21,7 @@ const FormActions = ({ onCancel, submitDisabled = false }: FormActionsProps) => 
           : 'bg-cyan-600 hover:bg-cyan-700'
       }`}
     >
-      Создать рецепт
+      Create recipe
     </button>
   </div>
 );

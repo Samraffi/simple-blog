@@ -2,13 +2,13 @@ export type RecipePost = {
   id: string;
   title: string;
   content: string;
-  imageUrl?: string; // URL изображения
-  rating?: number;    // Рейтинг от 1 до 5
-  reviews?: number; // Количество отзывов
-  ingredients: string[]; // Список ингредиентов
-  cookTime: string;      // "30 мин"
-  steps: string[];       // Нумерованные шаги
-  category: string;      // "Десерты"
+  imageUrl?: string; // Image URL
+  rating?: number;   // Rating from 1 to 5
+  reviews?: number;  // Number of reviews
+  ingredients: string[]; // List of ingredients
+  cookTime: string;      // "30 min"
+  steps: string[];       // Numbered steps
+  category: string;      // "Desserts"
   createdAt: string;
   updatedAt: string;
 }
@@ -57,8 +57,6 @@ export type AlertStateType = {
 
 export type AlertType = 'error' | 'success' | 'warning' | 'info';
 
-
-
 export interface RecipeListProps {
   recipes: Recipes;
   onUpdate: () => void;
@@ -94,7 +92,7 @@ export const RECIPE_VALIDATION = {
   },
   cookTime: {
     required: true,
-    pattern: /^\d+\s*мин$/
+    pattern: /^\d+\s*min$/
   },
   steps: {
     required: true,
@@ -106,12 +104,12 @@ export const RECIPE_VALIDATION = {
 };
 
 export enum RecipeCategory {
-  Desserts = "Десерты",
-  MainDishes = "Основные блюда",
-  Soups = "Супы",
-  Salads = "Салаты",
-  Appetizers = "Закуски",
-  Beverages = "Напитки",
-  Breads = "Выпечка",
-  Other = "Другое"
+  Desserts = "Desserts",
+  MainDishes = "Main Dishes",
+  Soups = "Soups",
+  Salads = "Salads",
+  Appetizers = "Appetizers",
+  Beverages = "Beverages",
+  Breads = "Breads",
+  Other = "Other"
 }

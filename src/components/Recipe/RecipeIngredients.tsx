@@ -5,7 +5,7 @@ interface RecipeIngredientsProps {
 const RecipeIngredients = ({ ingredients }: RecipeIngredientsProps) => {
   return (
     <div>
-      <h3 className="text-xl font-bold mb-4">Ингредиенты</h3>
+      <h3 className="text-xl font-bold mb-4">Ingredients</h3>
       <ul className="space-y-2">
         {ingredients.map((ingredient, index) => (
           <li key={index} className="flex items-start">

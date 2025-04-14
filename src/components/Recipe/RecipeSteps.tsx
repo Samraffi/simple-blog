@@ -5,7 +5,7 @@ interface RecipeStepsProps {
 const RecipeSteps = ({ steps }: RecipeStepsProps) => {
   return (
     <div>
-      <h3 className="text-xl font-bold mb-4">Инструкции</h3>
+      <h3 className="text-xl font-bold mb-4">Instructions</h3>
       <ol className="list-decimal pl-5 space-y-4">
         {steps.map((step, index) => (
           <li key={index}>{step}</li>

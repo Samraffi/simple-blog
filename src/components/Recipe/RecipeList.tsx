@@ -1,4 +1,3 @@
-// RecipeList.tsx (список рецептов)
 import { useState } from 'react';
 import { AlertStateType, RecipeListProps, RecipePost } from '../../types/recipe';
 import RecipeEditor from './RecipeEditor';
@@ -19,7 +18,7 @@ const RecipeList = ({ recipes, onUpdate }: RecipeListProps) => {
     isOpen: false,
     title: '',
     message: '',
-    deleteId: '' // Добавляем ID для удаления
+    deleteId: '' // ID for deletion
   });
 
   const handleUpdate = async (updatedRecipe: RecipePost) => {

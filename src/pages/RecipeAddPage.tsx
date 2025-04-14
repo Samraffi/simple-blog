@@ -14,7 +14,7 @@ const RecipeAddPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-8">Создать новый рецепт</h1>
+      <h1 className="text-3xl text-center font-bold mb-8">Create new recipe</h1>
       
       <Formik
         initialValues={initialRecipeValues}
@@ -24,39 +24,39 @@ const RecipeAddPage = () => {
         {({ isSubmitting }) => (
           <Form className="max-w-2xl mx-auto space-y-6">
             <InputField
-              label="Название"
+              label="Title"
               name="title"
             />
 
             <TextareaField
-              label="Содержание"
+              label="Content"
               name="content"
             />
 
             <InputField
-              label="URL изображения"
+              label="Image URL"
               name="imageUrl"
               type="url"
               required={false}
             />
 
             <InputField
-              label="Время приготовления"
+              label="Cooking time"
               name="cookTime"
             />
 
             <InputField
-              label="Категория"
+              label="Category"
               name="category"
             />
 
             <ArrayField
-              label="Ингредиенты"
+              label="Ingredients"
               name="ingredients"
             />
 
             <ArrayField
-              label="Шаги приготовления"
+              label="Cooking steps"
               name="steps"
               isTextarea
             />

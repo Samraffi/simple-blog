@@ -3,8 +3,8 @@ import { ContactFormValues } from '../../types/contact';
 export const useContactForm = () => {
   const handleSubmit = async (values: ContactFormValues) => {
     try {
-      // В будущем здесь будет API запрос
-      console.log('Отправка формы:', values);
+      // API request will be implemented in the future
+      console.log('Form submission:', values);
     } catch (error) {
       console.error('Failed to send message:', error);
       throw error;

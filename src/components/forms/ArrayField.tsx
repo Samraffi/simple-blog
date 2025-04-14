@@ -54,7 +54,7 @@ const ArrayField = ({
                     onClick={() => remove(index)}
                     className="px-3 py-2 text-red-600 hover:text-red-800"
                   >
-                    Удалить
+                    Delete
                   </button>
                 )}
               </div>
@@ -64,7 +64,7 @@ const ArrayField = ({
               onClick={() => push('')}
               className="text-cyan-600 hover:text-cyan-800"
             >
-              + {isTextarea ? 'Добавить шаг' : 'Добавить элемент'}
+              + {isTextarea ? 'Add step' : 'Add item'}
             </button>
           </div>
         )}

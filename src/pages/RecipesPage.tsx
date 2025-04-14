@@ -10,7 +10,7 @@ const RecipesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [allRecipes, setAllRecipes] = useState<RecipePost[]>([]);
 
-  // Загрузка рецептов при монтировании
+  // Load recipes on mount
   useEffect(() => {
     const loadRecipes = () => {
       const loadedRecipes = getPosts() as RecipePost[];
@@ -27,7 +27,7 @@ const RecipesPage = () => {
     loadRecipes();
   }, []);
 
-  // Мемоизированная фильтрация рецептов
+  // Memoized recipe filtering
   const filteredRecipes = useMemo(() => {
     if (!searchQuery) return allRecipes;
 
@@ -50,8 +50,7 @@ const RecipesPage = () => {
             to="/recipes/add"
             className="inline-flex items-center px-6 py-3 bg-cyan-600 text-white font-semibold rounded-lg hover:bg-cyan-700 transition-colors duration-200"
           >
-            {/* ... SVG иконка ... */}
-            Создать рецепт
+            Create recipe
           </Link>
         </div>
         <RecipeSearch 
@@ -60,7 +59,7 @@ const RecipesPage = () => {
         />
         <RecipeGrid 
           recipes={filteredRecipes}
-          onUpdate={() => setAllRecipes([...getPosts()])} // Обновление списка
+          onUpdate={() => setAllRecipes([...getPosts()])} // Update list
         />
       </div>
     </div>

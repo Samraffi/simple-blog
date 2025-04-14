@@ -5,44 +5,44 @@ export const validateRecipeFields = (recipe: Partial<RecipePost>): FormValidatio
 
   // Validate title
   if (!recipe.title) {
-    errors.title = ["Название рецепта обязательно"];
+    errors.title = ["Recipe title is required"];
   } else if (recipe.title.length < RECIPE_VALIDATION.title.minLength) {
-    errors.title = [`Название должно содержать минимум ${RECIPE_VALIDATION.title.minLength} символа`];
+    errors.title = [`Title must be at least ${RECIPE_VALIDATION.title.minLength} characters`];
   } else if (recipe.title.length > RECIPE_VALIDATION.title.maxLength) {
-    errors.title = [`Название не должно превышать ${RECIPE_VALIDATION.title.maxLength} символов`];
+    errors.title = [`Title must not exceed ${RECIPE_VALIDATION.title.maxLength} characters`];
   }
 
   // Validate content
   if (!recipe.content) {
-    errors.content = ["Описание рецепта обязательно"];
+    errors.content = ["Recipe description is required"];
   } else if (recipe.content.length < RECIPE_VALIDATION.content.minLength) {
-    errors.content = [`Описание должно содержать минимум ${RECIPE_VALIDATION.content.minLength} символов`];
+    errors.content = [`Description must be at least ${RECIPE_VALIDATION.content.minLength} characters`];
   } else if (recipe.content.length > RECIPE_VALIDATION.content.maxLength) {
-    errors.content = [`Описание не должно превышать ${RECIPE_VALIDATION.content.maxLength} символов`];
+    errors.content = [`Description must not exceed ${RECIPE_VALIDATION.content.maxLength} characters`];
   }
 
   // Validate ingredients
   if (!recipe.ingredients || recipe.ingredients.length < RECIPE_VALIDATION.ingredients.minItems) {
-    errors.ingredients = ["Добавьте хотя бы один ингредиент"];
+    errors.ingredients = ["Add at least one ingredient"];
   }
 
   // Validate cookTime
   if (!recipe.cookTime) {
-    errors.cookTime = ["Время приготовления обязательно"];
+    errors.cookTime = ["Cooking time is required"];
   } else if (!RECIPE_VALIDATION.cookTime.pattern.test(recipe.cookTime)) {
-    errors.cookTime = ["Время должно быть указано в формате '30 мин'"];
+    errors.cookTime = ["Time should be in format '30 min'"];
   }
 
   // Validate steps
   if (!recipe.steps || recipe.steps.length < RECIPE_VALIDATION.steps.minItems) {
-    errors.steps = ["Добавьте хотя бы один шаг приготовления"];
+    errors.steps = ["Add at least one cooking step"];
   }
 
   // Validate category
   if (!recipe.category) {
-    errors.category = ["Выберите категорию рецепта"];
+    errors.category = ["Please select a recipe category"];
   } else if (!Object.values(RecipeCategory).includes(recipe.category as RecipeCategory)) {
-    errors.category = ["Выбрана некорректная категория"];
+    errors.category = ["Invalid category selected"];
   }
 
   return errors;

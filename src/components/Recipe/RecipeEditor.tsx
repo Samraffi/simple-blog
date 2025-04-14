@@ -19,39 +19,39 @@ const RecipeEditor = ({ initialData, onSave, onCancel }: RecipeEditorProps) => {
       {({ isSubmitting }) => (
         <Form className="bg-white p-6 rounded-lg mb-6">
           <InputField
-            label="Название"
+            label="Title"
             name="title"
           />
 
           <TextareaField
-            label="Содержание"
+            label="Content"
             name="content"
           />
 
           <InputField
-            label="URL изображения"
+            label="Image URL"
             name="imageUrl"
             type="url"
             required={false}
           />
 
           <InputField
-            label="Время приготовления"
+            label="Cooking time"
             name="cookTime"
           />
 
           <InputField
-            label="Категория"
+            label="Category"
             name="category"
           />
 
           <ArrayField
-            label="Ингредиенты"
+            label="Ingredients"
             name="ingredients"
           />
 
           <ArrayField
-            label="Шаги приготовления"
+            label="Cooking steps"
             name="steps"
             isTextarea
           />

@@ -23,7 +23,7 @@ const RecipeHeader = ({ title, category, cookTime, updatedAt, rating, reviews }:
           <span className="ml-4 text-gray-500">⏱️ {cookTime}</span>
         </div>
         <div className="text-sm text-gray-500">
-          Обновлено: {formatDate(updatedAt)}
+          Updated: {formatDate(updatedAt)}
         </div>
       </div>
 

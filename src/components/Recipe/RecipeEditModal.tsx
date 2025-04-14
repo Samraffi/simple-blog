@@ -24,7 +24,7 @@ const RecipeEditModal = ({
       <div className="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold">Редактировать рецепт</h2>
+            <h2 className="text-2xl font-bold">Edit recipe</h2>
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700"
@@ -41,9 +41,9 @@ const RecipeEditModal = ({
                 await updatePost(updatedRecipe);
                 onUpdate(updatedRecipe);
                 onClose();
-                onAlertShow('Рецепт успешно обновлен', 'success');
+                onAlertShow('Recipe updated successfully', 'success');
               } catch (error) {
-                onAlertShow('Ошибка при обновлении рецепта', 'error');
+                onAlertShow('Error updating recipe', 'error');
               }
             }}
             onCancel={onClose}

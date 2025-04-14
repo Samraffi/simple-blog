@@ -34,8 +34,8 @@ const RecipeDetailsCard = ({
         {/* Time and Actions */}
         <div className="flex flex-wrap justify-between items-center mb-4">
           <div>
-            <p className="text-gray-700">Время приготовления: {cookTime}</p>
-            <p className="text-gray-700">Категория: {category}</p>
+            <p className="text-gray-700">Cooking time: {cookTime}</p>
+            <p className="text-gray-700">Category: {category}</p>
           </div>
           <RecipeActions onEdit={onEdit} />
         </div>
